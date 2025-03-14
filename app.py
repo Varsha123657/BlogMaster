@@ -113,6 +113,32 @@ def main():
     st.image("blogmaster.jpeg", use_container_width=True)  # Adjust the path as needed
     st.write("### 🤖 Hello! I’m BlogMaster, your friendly robot. Let’s create a fantastic blog together!")
 
+import streamlit as st
+
+# Dummy function to generate a blog (replace with actual AI model call)
+def generate_blog(topic, word_count):
+    return f"Here is a {word_count}-word blog on '{topic}'.\n\n" + ("Lorem ipsum " * (word_count // 2))
+
+# Main function to run the Streamlit app
+def main():
+    st.title("📝 BlogMaster - AI Blog Generator")
+
+    # Get user input
+    user_input = st.text_input("Topic", "")
+    word_count = st.number_input("Number of words", min_value=100, max_value=5000, value=1000, step=50)
+
+    if st.button("Generate Blog"):
+        if user_input and word_count:
+            # Call the generate_blog function
+            blog_content = generate_blog(user_input, word_count)
+            if blog_content:
+                st.write(blog_content)
+            else:
+                st.error("Failed to generate blog. Try again.")
+        else:
+            st.error("Please provide both the topic and the number of words.")
+
 # Run the app
 if __name__ == "__main__":
     main()
+
