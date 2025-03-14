@@ -115,9 +115,6 @@ def main():
 
 import streamlit as st
 
-# Dummy function to generate a blog (replace with actual AI model call)
-def generate_blog(topic, word_count):
-    return f"Here is a {word_count}-word blog on '{topic}'.\n\n" + ("Lorem ipsum " * (word_count // 2))
 
 # Main function to run the Streamlit app
 def main():
